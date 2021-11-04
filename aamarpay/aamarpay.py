@@ -70,6 +70,6 @@ class aamarPay:
             const.sandBoxUrl if self.isSandbox else const.productionUrl, payload)
         if response.status_code == 200:
             start = response.text.index('action="')
-            return response.text[start+8:start+45]
+            return const.sandboxReturnUrl + response.text[start+8:start+45] if self.isSandbox else const.productionReturnUrl+response.text[start+8:start+45]
 
         return response.text

@@ -4,10 +4,21 @@ aamarpay is an online payment gateway service for Bangladesh. Committed to provi
 
 ## How to use: 
 
+
+We recommend install ``aamarpay`` through pip install .
+
+.. code:: bash
 ```
-aamrpay = aamarPay(isSandbox=True,)
-print(aamrpay.payment())
+$ pip install aamarpay
 ```
 
+Output 
+```
+ from aamarpay.aamarpay import aamarPay
+    pay = aamarPay(isSandbox=True,transactionAmount=600)
+    paymentpath = pay.payment()
+    return redirect(paymentpath)
+    # Output: paymentpath output https://sandbox.aamarpay.com/paynow.php?track=AAM1636017211119390#
+```
 
 Find more details in [aamarPay](https://aamarpay.com/) 

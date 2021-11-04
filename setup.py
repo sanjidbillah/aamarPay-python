@@ -1,7 +1,10 @@
 import setuptools
+import io
 
-# with open("README.md", "r") as fh:
-#     long_description = fh.read()
+
+with open("README.txt", "r") as fh:
+    long_description = fh.read()
+
 
 classifiers = [
     'Development Status :: 5 - Production/Stable',
@@ -17,15 +20,16 @@ requires = [
 ]
 setuptools.setup(
     name='aamarpay',
-    version='0.0.7',
+    version='1.0.0',
     description='Payment gateway libarary',
-    long_description='long_description',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     url='https://github.com/sanjidbillah/aamarPay-python',
     author='Masum billah sanjid',
     author_email='masumbillahsanjid@gmail.com',
     license='MIT',
     classifiers=classifiers,
-    keywords='Payment',
+    keywords='aamarPay payment gateway python',
     packages=setuptools.find_packages(),
     install_requires=requires
 )
