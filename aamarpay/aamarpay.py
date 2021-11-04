@@ -1,6 +1,6 @@
 
 import requests
-import aamarpay._constants as const
+from . import _constants as const
 
 
 class aamarPay:

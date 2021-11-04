@@ -1,1 +1,1 @@
-aamarPay python library
+aamarPay is an online payment gateway service for Bangladesh. Committed to provide best payment experience online for business. Lowest fee and fast checkout will give you good experience of receiving payment online.
