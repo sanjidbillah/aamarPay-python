@@ -1,0 +1,7 @@
+sandBoxUrl = 'https://sandbox.aamarpay.com/index.php'
+productionUrl = 'https://secure.aamarpay.com/index.php'
+succesUrl = 'example.com/payment/confirm'
+failUrl = 'example.com/payment/fail'
+cancelUrl = 'example.com/payment/cancel'
+signature  = 'dbb74894e82415a2f7ff0ec3a97e4183'
+storeID = 'aamarpaytest'
