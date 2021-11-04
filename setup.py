@@ -18,7 +18,7 @@ setup(
     description='Payment gateway libarary',
     long_description=open('README.txt').read() + '\n\n' +
     open('CHANGELOG.txt').read(),
-    url='',
+    url='https://github.com/sanjidbillah/aamarPay-python',
     author='Masum billah sanjid',
     author_email='masumbillahsanjid@gmail.com',
     license='MIT',
