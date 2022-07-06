@@ -1,4 +1,6 @@
 
+from ast import Str
+import json
 import requests
 from . import _constants as const
 
@@ -42,34 +44,38 @@ class aamarPay:
         self.customerPostCode = customerPostCode
 
     def payment(self):
-
-        payload = {
-            "store_id": const.storeID,
-            "tran_id": self.transactionID,
-            "success_url": self.successUrl,
-            "fail_url": self.failUrl,
-            "cancel_url": self.cancelUrl,
-            "amount": self.transactionAmount,
-            "currency": "BDT",
-            "signature_key": self.signature,
-            "desc": self.description,
-            "cus_name": self.customerName,
-            "cus_email": self.customerEmail,
-            "cus_add1":
-            self.customerAddress1,
-            "cus_add2":
-            self.customerAddress2,
-            "cus_city": self.customerCity,
-            "cus_state":
-            self.customerState,
-            "cus_postcode": self.customerPostCode,
-            "cus_country": "Bangladesh",
-            "cus_phone": self.customerMobile
-        }
-        response = requests.post(
-            const.sandBoxUrl if self.isSandbox else const.productionUrl, payload)
-        if response.status_code == 200:
-            start = response.text.index('action="')
-            return const.sandboxReturnUrl + response.text[start+8:start+45] if self.isSandbox else const.productionReturnUrl+response.text[start+8:start+45]
-
-        return response.text
+        try:
+            payload = {
+                "store_id": self.storeID,
+                "tran_id": self.transactionID,
+                "success_url": self.successUrl,
+                "fail_url": self.failUrl,
+                "cancel_url": self.cancelUrl,
+                "amount": self.transactionAmount,
+                "currency": "BDT",
+                "signature_key": self.signature,
+                "desc": self.description,
+                "cus_name": self.customerName,
+                "cus_email": self.customerEmail,
+                "cus_add1":
+                self.customerAddress1,
+                "cus_add2":
+                self.customerAddress2,
+                "cus_city": self.customerCity,
+                "cus_state":
+                self.customerState,
+                "cus_postcode": self.customerPostCode,
+                "cus_country": "Bangladesh",
+                "cus_phone": self.customerMobile,
+                "type": "json"
+            }
+            response = requests.post(
+                const.sandBoxUrl if self.isSandbox else const.productionUrl, payload)
+            parseRes = json.loads(response.text)
+            if response.status_code == 200:
+                if type(parseRes) is not Str and "payment_url" in parseRes:
+                    return parseRes["payment_url"]
+                return response.text
+            return response.text
+        except:
+            return "unkonwn error"

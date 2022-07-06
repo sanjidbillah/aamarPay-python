@@ -1,5 +1,5 @@
 
 from aamarpay.aamarpay import aamarPay
 
-aamrpay = aamarPay(isSandbox=True,)
+aamrpay = aamarPay(isSandbox=True, )
 print(aamrpay.payment())

@@ -20,7 +20,7 @@ requires = [
 ]
 setuptools.setup(
     name='aamarpay',
-    version='1.0.0',
+    version='1.0.1',
     description='Payment gateway libarary',
     long_description=long_description,
     long_description_content_type='text/markdown',
