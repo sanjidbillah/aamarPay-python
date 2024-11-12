@@ -1,5 +1,5 @@
-sandBoxUrl = 'https://sandbox.aamarpay.com/index.php'
-productionUrl = 'https://secure.aamarpay.com/index.php'
+sandBoxUrl = 'https://sandbox.aamarpay.com/jsonpost.php'
+productionUrl = 'https://secure.aamarpay.com/jsonpost.php'
 succesUrl = 'https://example.com/payment/confirm'
 failUrl = 'https://example.com/payment/fail'
 cancelUrl = 'https://example.com/payment/cancel'

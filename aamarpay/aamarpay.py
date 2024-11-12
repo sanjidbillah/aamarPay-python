@@ -69,8 +69,11 @@ class aamarPay:
                 "cus_phone": self.customerMobile,
                 "type": "json"
             }
+            # takes a JSON-formatted string
             response = requests.post(
-                const.sandBoxUrl if self.isSandbox else const.productionUrl, payload)
+                const.sandBoxUrl if self.isSandbox else const.productionUrl,
+                data=json.dumps(payload)
+            )
             parseRes = json.loads(response.text)
             if response.status_code == 200:
                 if type(parseRes) is not Str and "payment_url" in parseRes:
